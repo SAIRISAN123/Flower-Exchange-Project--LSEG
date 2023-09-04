@@ -1,5 +1,6 @@
 Ord ID,Cl. Ord.ID,Instrument,Side,Exec,Qunatity,Price
 Ord1,aa13,Rose,2,New,100,55.00
 Ord2,aa14,Rose,2,New,100,45.00
-Ord3,aa15,Rose,1,Fill,100,45.00
-Ord2,aa14,Rose,2,Fill,New,100,45.00
+Ord3,aa15,Rose,1,PFill,100,45.00
+Ord2,aa14,Rose,2,Fill,100,45.00
+Ord2,aa14,Rose,2,Fill,100,45.00
