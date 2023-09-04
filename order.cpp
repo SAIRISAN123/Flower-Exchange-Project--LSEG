@@ -143,7 +143,7 @@ int main() {
                  
                 data[i].erase(data[i].begin()+4);
                 data[i].insert(data[i].begin()+4, "Fill"); 
-                //data.push_back(data[i]); 
+                data.push_back(data[i]); 
                 data[i+1].insert(data[i+1].begin()+4, "Fill");
                 data[i+1].erase(data[i+1].begin()+4);
                 break;
@@ -166,6 +166,8 @@ int main() {
                     data[i].erase(data[i].begin()+5);
                     data[i].insert(data[i].begin()+5, to_string(quantity));
                     data.push_back(data[j]);
+                    data[i+1].erase(data[i+1].begin()+4);
+                    data[i+1].insert(data[i+1].begin()+4, "Fill");
                     
                     
                     
