@@ -61,7 +61,6 @@ vector<vector<string>> processFile(const string& filename, char delimiter) {
 
 
 
-
 vector<vector<string>> read_file (string filename) {
     ifstream file(filename);
     if (!file.is_open()) {
