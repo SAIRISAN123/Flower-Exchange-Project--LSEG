@@ -121,7 +121,8 @@ int main() {
     { 
 
         data[i].insert(data[i].begin(), "Ord"+to_string(i));
-        data[i].insert(data[i].begin()+4, "New"); }
+        data[i].insert(data[i].begin()+4, "New"); 
+        }
 
 
 
@@ -134,7 +135,7 @@ int main() {
          
             if (( data[i][6]==data[j][6] ) && (( data[i][5]==data[j][5])) && (data[i][2] !=data[j][3])){
                 
-                data[i].insert(data[i].begin(), "Ord"+to_string(i));
+                //data[i].insert(data[i].begin(), "Ord"+to_string(i));
                 data[i].insert(data[i].begin()+4, "Fill"); 
                 data.erase(data.begin()+j);
                 break;
@@ -149,7 +150,7 @@ int main() {
                     int quantity=stoi(data[i][5]) -stoi(data[j][5]);
                     cout<<quantity<<endl;
 
-                    data[i].insert(data[i].begin(),"Ord"+to_string(i));
+                    //data[i].insert(data[i].begin(),"Ord"+to_string(i));
                     data[i].insert(data[i].begin()+4, "PFill"); 
                     data[i].erase(data[i].begin()+5);
                     data[i].insert(data[i].begin()+5, to_string(quantity)); 
@@ -186,11 +187,7 @@ int main() {
             
             
             
-            
-            
-            
-            
-                }
+        }
 
         
         
