@@ -121,7 +121,7 @@ int main() {
     
     
     for (int i = 1; i < data.size(); i++)
-    { 
+        { 
 
         data[i].insert(data[i].begin(), "Ord"+to_string(i));
         data[i].insert(data[i].begin()+4, "New"); 
@@ -132,7 +132,7 @@ int main() {
 
 
     for (int i = 2; i < data.size(); i++)
-    { 
+        { 
          
         for (int j=i-1 ; j>=0;j--) {
          
@@ -191,103 +191,95 @@ int main() {
                 
                 
                 }  
-            }
+                  }
 
             
             
-            else if (( data[i][6]=="1.00" ) && (data[i][3] !=data[j][3]) && (data[i][4]!="Fill") ) { 
-                
-                int k=-1;
-                float m=-1.00;
-                for (int t=1; t<=data.size(); t++) {
-                    cout<<k<<endl;
-                    if (((stof(data[t][6]))>m)) {
+                else if (( data[i][6]=="1.00" ) && (data[i][3] !=data[j][3]) && (data[i][4]!="Fill") ) { 
+                    
+                    int k=0;
+                    
+                    float m=-1.00;
+                    for (int t=1; t<=data.size(); t++) {
                         
-                        k=i;
-                        m=(stof(data[t][6]));
-                        cout<<k<<endl;
-                        }
-                   
-                        else {k=k;}   }
-
+                        if (((stof(data[t][6]))>m)) {
+                            
+                            k=i;
+                            m=(stof(data[t][6]));
+                            
+                            }
                     
+                            else {k=k;}   }
+                    
+                            ;
+                    
+                            
+                            
+                            cout<<"sas"<<endl;
+                            cout<<int(k)<<endl;
+                            cout<<m<<endl;
+                            cout<<"sas"<<endl;
+
+                        if (( data[i][5]==data[k][5])){
+                                cout<<"not"<<endl;
+                                //data[i].insert(data[i].begin(), "Ord"+to_string(i));
+                            
+                            
+                            data[i].erase(data[i].begin()+4);
+                            data[i].insert(data[i].begin()+4, "Fill"); 
+                            data.push_back(data[i]); 
+                            data[i+1].insert(data[i+1].begin()+4, "Fill");
+                            data[i+1].erase(data[i+1].begin()+4);\
+                            //cout<<"not"<<endl;
+                            break;
+                            
+
+                            }
+                        
+
+                        else if (stoi(data[i][5]) >= stoi(data[k][5])){
+                                
+                                int quantity=stoi(data[i][5]) -stoi(data[k][5]);
+                                cout<<quantity<<endl;
+                                
+                                //data[i].insert(data[i].begin(),"Ord"+to_string(i));
+                                data[i].erase(data[i].begin()+4);
+                                data[i].insert(data[i].begin()+4, "PFill"); 
+                                data[i].erase(data[i].begin()+5);
+                                data[i].insert(data[i].begin()+5, to_string(quantity));
+                                data.push_back(data[k]);
+                                data[i+1].erase(data[i+1].begin()+4);
+                                data[i+1].insert(data[i+1].begin()+4, "Fill");
+                                
+                                
+                                
+                                break;
+
+                            }
+
+                        else if (stoi(data[i][5]) <  stoi(data[k][5])){
+                            cout<<"not"<<endl;  
+                            
+                                int quantity=stoi(data[k][5])- stoi(data[i][5]);
+                                
+                            //data[j].insert(data[j].begin(), "Ord"+to_string(i));
+
+                                data[k].insert(data[k].begin()+4, "PFill"); 
+                                data[k].erase(data[k].begin()+5);
+                                data[k].insert(data[k].begin()+5, to_string(quantity)); 
+                                
+                                break;   }
+                            
+                            
+                            
+                                }
+
             
-                cout<<"sas"<<endl;
-                cout<<k<<endl;
-                cout<<m<<endl;
-                cout<<"sas"<<endl;
-
-            if (( data[i][5]==data[k][5])){
-                cout<<"not"<<endl;
-                //data[i].insert(data[i].begin(), "Ord"+to_string(i));
-                
-                 
-                data[i].erase(data[i].begin()+4);
-                data[i].insert(data[i].begin()+4, "Fill"); 
-                data.push_back(data[i]); 
-                data[i+1].insert(data[i+1].begin()+4, "Fill");
-                data[i+1].erase(data[i+1].begin()+4);\
-                //cout<<"not"<<endl;
-                break;
-                
-
-                }
             
-
-             else if (stoi(data[i][5]) >= stoi(data[k][5])){
-                    
-                    int quantity=stoi(data[i][5]) -stoi(data[k][5]);
-                    cout<<quantity<<endl;
-                    
-                    //data[i].insert(data[i].begin(),"Ord"+to_string(i));
-                    data[i].erase(data[i].begin()+4);
-                    data[i].insert(data[i].begin()+4, "PFill"); 
-                    data[i].erase(data[i].begin()+5);
-                    data[i].insert(data[i].begin()+5, to_string(quantity));
-                    data.push_back(data[k]);
-                    data[i+1].erase(data[i+1].begin()+4);
-                    data[i+1].insert(data[i+1].begin()+4, "Fill");
-                    
-                    
-                    
-                    break;
-
-                }
-
-            else if (stoi(data[i][5]) <  stoi(data[k][5])){
-                  cout<<"not"<<endl;  
-                
-                    int quantity=stoi(data[k][5])- stoi(data[i][5]);
-                    
-                //data[j].insert(data[j].begin(), "Ord"+to_string(i));
-
-                    data[k].insert(data[k].begin()+4, "PFill"); 
-                    data[k].erase(data[k].begin()+5);
-                    data[k].insert(data[k].begin()+5, to_string(quantity)); 
-                    
-                    break;
-                
-                
-                }  
-
-
-
+        } }
             
-            
-            }
             
         
-      
-        
-            
-        }
-
-        
-        
-    }
-        
-        
-    
 
     write_csv("execution_rep.csv", data);
 
