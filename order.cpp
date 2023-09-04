@@ -109,10 +109,12 @@ void write_csv(const string &filename, vector<vector<string>> &data) {
 
 
 
+
+
 int main() {
     
     vector<vector<string>> data;
-    data= read_file("Example 1.csv") ;
+    data= read_file("Example 2.csv") ;
     data[0].insert(data[0].begin(), "Ord ID");
     data[0].insert(data[0].begin()+4, "Exec");
     
@@ -123,21 +125,25 @@ int main() {
         data[i].insert(data[i].begin(), "Ord"+to_string(i));
         data[i].insert(data[i].begin()+4, "New"); 
         }
+    
 
 
 
 
-
-    for (int i = 1; i < data.size(); i++)
+    for (int i = 2; i < data.size(); i++)
     { 
 
         for (int j=i-1 ; j>=0;j--) {
          
-            if (( data[i][6]==data[j][6] ) && (( data[i][5]==data[j][5])) && (data[i][2] !=data[j][3])){
+            if (( data[i][6]==data[j][6] ) && (( data[i][5]==data[j][5])) && (data[i][3] !=data[j][3])){
                 
                 //data[i].insert(data[i].begin(), "Ord"+to_string(i));
+                
+                
+                data[i].erase(data[i].begin()+4);
                 data[i].insert(data[i].begin()+4, "Fill"); 
-                data.erase(data.begin()+j);
+                data.push_back(data[j]); 
+                data[i+1].insert(data[i+1].begin()+4, "Fill");
                 break;
                 }
 
@@ -151,6 +157,7 @@ int main() {
                     cout<<quantity<<endl;
 
                     //data[i].insert(data[i].begin(),"Ord"+to_string(i));
+                    data[i].erase(data[i].begin()+4);
                     data[i].insert(data[i].begin()+4, "PFill"); 
                     data[i].erase(data[i].begin()+5);
                     data[i].insert(data[i].begin()+5, to_string(quantity)); 
@@ -194,11 +201,6 @@ int main() {
     }
         
         
-    
-    
-    
-    
-    
     
 
     write_csv("execution_rep.csv", data);
